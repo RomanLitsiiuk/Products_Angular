@@ -1,0 +1,24 @@
+<main class="content" (purchasesChanged)="show($event)">
+  <div class="content__container">
+    <h1 class="heading heading--main">Purchases list</h1>
+    <div class="total">
+      <p class="total__text">Total price: <span class="total__price">{{result}} &#8372;</span></p>
+    </div>
+    <div class="button-wrap">
+      <button class="button" (click)="congratulations()">Buy all!</button>
+    </div>
+    <div class="products">
+      <div class="products__item" *ngFor="let productData of purchases">
+        <article class="card">
+          <img class="card__image" src={{productData.photo}} alt="{{productData.brand}}">
+          <h3 class="card__title" (click)="viewDetails(productData)">{{productData.name}}</h3>
+          <p class="card__price">{{productData.prices.with_discount_grn}} UAH</p>
+          <div class="card__controls">
+            <button class="card__button" type="button" (click)="viewDetails(productData)">View details</button>
+            <button class="card__button" type="button" (click)="removeFromPurchases(productData.id)">Remove from purchases</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</main>

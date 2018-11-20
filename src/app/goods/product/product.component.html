@@ -1,0 +1,36 @@
+<main class="content">
+  <div class="content__container">
+    <h1 class="heading heading--main">Product details</h1>
+    <div class="details">
+      <h1 class="details__name">{{product.name}}</h1>
+      <div class="details__data-wrap">
+        <div class="details__image-wrap">
+          <img class="details__image" src={{product.photo}} alt={{product.brand}}>
+        </div>
+        <div class="details__text-wrap">
+          <p class="details__sale" *ngIf="product.sale">Sale! Hot Price!</p>
+          <p class="details__text">Brand: {{product.brand}}</p>
+          <p class="details__text">Category: {{product.category.name}}</p>
+          <p class="details__text">Reviews: {{product.reviews}}</p>
+        </div>
+      </div>
+      <h2 class="heading heading--price">Price:</h2>
+      <div class="price">
+        <div class="price__column">
+          <h4 class="price__table-head price__table-head--first">With discount:</h4>
+          <p class="price__table-ceil price__table-ceil--first">USD: <span class="price__discount">{{product.prices
+            .with_discount_usd}}</span></p>
+          <p class="price__table-ceil price__table-ceil--first">GRN: <span class="price__discount">{{product.prices.with_discount_grn}}</span></p>
+        </div>
+        <div class="price__column">
+          <h4 class="price__table-head">Without discount:</h4>
+          <p class="price__table-ceil">USD: <span
+            class="price__without-discount">{{product.prices
+            .without_discount_usd}}</span></p>
+          <p class="price__table-ceil">GRN: <span class="price__without-discount">{{product.prices.without_discount_grn}}</span></p>
+        </div>
+      </div>
+      <button class="button" (click)="addToPurchases(product)">Buy now!</button>
+    </div>
+  </div>
+</main>

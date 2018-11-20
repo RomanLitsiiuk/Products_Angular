@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="top-row">
+    <div class="top-row__points-wrap">
+      <div class="top-row__point"></div>
+      <div class="top-row__point"></div>
+      <div class="top-row__point"></div>
+    </div>
+  </div>
+  <div class="header__content">
+    <div class="header__container">
+      <div class="header__data-wrap">
+        <h1 class="heading heading--logo">Amazing store</h1>
+        <div class="navigation">
+          <div class="navigation__button">
+            <a class="navigation__link" routerLink="/goods" routerLinkActive="navigation__link--active">Products</a>
+          </div>
+          <div class="navigation__button">
+            <a class="navigation__link" routerLink="/purchases" routerLinkActive="navigation__link--active">Purchases</a>
+          </div>
+        </div>
+      </div>
+      <div class="trash" routerLink="/purchases">
+        <fa class="trash__icon" name="shopping-cart"></fa>
+        <p class="trash__counter">{{productsCounter}}</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+

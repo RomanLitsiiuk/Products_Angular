@@ -1,0 +1,26 @@
+.main-markup {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+  &__content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__footer {
+    flex: 0 0 auto;
+  }
+}
+
+.clearfix::after,
+.clearfix::before {
+  content: '';
+  display: block;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+}

@@ -1,0 +1,33 @@
+<main class="content">
+  <div class="content__container">
+    <h1 class="heading heading--main">Products list</h1>
+    <form class="content__filter-wrap filter" [formGroup]="filter" (ngSubmit)="show(filter)">
+      <div class="filter__switch">
+        <label class="filter__label" for="switch">Filter by: </label>
+        <select class="filter__list" id="switch" formControlName="filterData">
+          <option class="filter__list-item" *ngFor="let option of filterOptions" [ngValue]="option">{{option}}</option>
+        </select>
+      </div>
+      <div class="filter__search">
+        <label class="filter__label" for="search"></label>
+        <input class="filter__input" id="search" type="text" formControlName="filterValue">
+      </div>
+    </form>
+    <div class="products">
+      <div class="products__item" *ngFor="let productData of goods | paginate: { itemsPerPage: 24, currentPage: p }">
+        <article class="card">
+          <img class="card__image" src={{productData.photo}} alt="{{productData.brand}}">
+          <h3 class="card__title" (click)="viewDetails(productData)">{{productData.name}}</h3>
+          <p class="card__price">{{productData.prices.with_discount_grn}} UAH</p>
+          <div class="card__controls">
+            <button class="card__button" type="button" (click)="viewDetails(productData)">View details</button>
+            <button class="card__button" type="button" (click)="addToPurchases(productData)">Add to purchases</button>
+          </div>
+        </article>
+      </div>
+      <div class="pagination">
+        <pagination-controls class="pagination__pages" (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</main>
